@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable no-sequences */
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css"
+import "./components/Home"
+import Home from './components/Home'
+import Form from './components/Form'
+import Login from './components/Login';
+import Payment from './components/Payment';
+import CardDetails from './components/CardDetails';
+import WalletDetails from './components/WalletDetails';
+import Success from './components/Success';
+import About from './components/About';
+import Profile from './components/Profile';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Form />} />
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/payment" element={<Payment/>}/>
+        <Route path="/carddetails" element={<CardDetails/>}/>
+        <Route path="/walletdetails" element={<WalletDetails/>}/>
+        <Route path="/success" element={<Success/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/profile" element={<Profile/>}/>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
